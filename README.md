@@ -77,9 +77,6 @@ Steps:
 Run SOLR indexing for single dataset into the live index.
 This does not run the all dataset processes (Jackknife etc)
 
-## Demo march 2022
-
-https://user-images.githubusercontent.com/444897/158394390-33aec578-899d-4c45-9f09-5d3d81f52060.mp4
 
 
 
