@@ -6,9 +6,6 @@ with Elastic Map Reduce.
 ## Installation
 
 These scripts have been tested with Airflow (MWAA) and EMR.
-To install, the following variables need to be set in Airflow > Admin > Variables.
-
-The file [airflow-variables.json](airflow-variables.json) can be uploaded to a new Airflow instance to initialise, and then customised in airflow UI.
 
 <img width="1029" alt="Screen Shot 2022-03-02 at 1 52 28 pm" src="https://user-images.githubusercontent.com/444897/156374747-9af8d19c-1150-4671-8204-c58ea67aa9dd.png">
 
