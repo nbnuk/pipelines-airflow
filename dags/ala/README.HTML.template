@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://www.ala.org.au/commonui-bs3/css/ala-styles.css" rel="stylesheet"
+          media="screen,print"/>
+    <!--<title>Title</title>-->
+    <style>
+        /* The only override we need from ala-styles.css */
+
+        body {
+            padding-top: 0px;
+        }
+
+        /* DOI - taken from GBIF */
+        .doi {
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 4px 6px;
+            white-space:nowrap;
+            white-space:nowrap;
+        }
+        .doi-sm {
+            font-size: 13px;
+            padding: 2px 0;
+        }
+        .doi span:first-of-type {
+            -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+            background: #D5502A ;
+            /*#09c;*/
+            padding: 4px 6px;
+            /*border-radius: 5px 0 0 5px;*/
+            color: #fff;
+            border-right-width: 0;
+            border-color:#D5502A;
+            /*#09c;*/
+        }
+        .doi span:last-of-type {
+            color: #333;
+            background: #fff;
+            text-decoration: none;
+            padding: 4px 6px;
+            /*border-radius: 0 5px 5px 0;*/
+            border-left-width: 0;
+        }
+        .doi span {
+            border: 1px solid #adadad;
+        }
+        .doi:hover span:first-of-type {
+            background: #D5502A;
+            /*#004d66; */
+            border-color: #D5502A;
+            /*#004d66;*/
+        }
+        .doi:hover span:last-of-type {
+            background: #f9f9f9;
+        }
+
+    </style>
+</head>
+<body>
+The <a href='https://en.wikipedia.org/wiki/Digital_object_identifier'>DOI</a> for this download is <a href=https://doi.org/10.80416/ala.c995f799-7cb1-4c72-8f32-6038b2862f76>https://doi.org/10.80416/ala.c995f799-7cb1-4c72-8f32-6038b2862f76</a><p/>
+When using this dataset please use the following citation:<p/>
+<cite>Atlas of Living Australia survey download at <a href='$search_query'>$search_query</a> accessed on $query_time.</cite> <p/>
+Also cite the contributing data provider below. More information can be found at <a href='https://support.ala.org.au/support/solutions/articles/6000195866-how-to-cite-the-ala'>citing the ALA</a>.<p/>
+The DOI for this download is available at <a href='$doi_download_url'>$doi_download_url</a><p/>
+Data provided by $data_provider, accessed through<a href=$event_server>Atlas of Living Australia Event Website</a>.<p/>
+For more information see:<a href=$data_provider_url>$data_provider_url</a><p/>
+</body>
+</html>
