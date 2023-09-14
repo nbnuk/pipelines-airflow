@@ -54,10 +54,6 @@ with DAG(dag_id=DAG_ID,
 
 
     def parse_params(kwargs):
-
-        # import pydevd_pycharm
-        # pydevd_pycharm.settrace('localhost', port=5555, stdoutToServer=True, stderrToServer=True, suspend=False)
-
         params = kwargs['dag_run'].conf.copy()
         logging.info("Parsing params")
         logging.info(f'Here is the params before adding extra items:{params}')

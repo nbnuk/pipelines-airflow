@@ -21,6 +21,7 @@ class CONFIG_KEY:
     PREINGEST_DATASET_ID = 'datasetId'
     PREINGEST_EXTRA_ARGS = 'extra_args'
     PREINGEST_INSTANCE_TYPE = 'instanceType'
+    PREINGEST_LOAD_IMAGES = 'load_images'
 
 
 class CreateDagOperator:
@@ -113,7 +114,8 @@ for job in job_list:
             tags.insert(0, registry_entity_uid)
         tags.append(instanceType)
         extra_args = job[CONFIG_KEY.PREINGEST_EXTRA_ARGS] if CONFIG_KEY.PREINGEST_EXTRA_ARGS in job else {}
-        params = {"datasetIds": registry_entity_uid, "load_images": "false", "instanceType": instanceType, "extra_args":extra_args, "override_uuid_percentage_check": "false"}
+        load_images = ala_config.LOAD_IMAGES if CONFIG_KEY.PREINGEST_LOAD_IMAGES not in job else job[CONFIG_KEY.PREINGEST_LOAD_IMAGES]
+        params = {"datasetIds": registry_entity_uid, CONFIG_KEY.PREINGEST_LOAD_IMAGES: load_images, "instanceType": instanceType, "extra_args":extra_args, "override_uuid_percentage_check": "false"}
 
     globals()[dag_id] = CreateDagOperator.create_dag(dag_id=dag_id,
                                                      trigger_dag_id=trigger_dag_id,
