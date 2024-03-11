@@ -12,7 +12,9 @@ sudo pip3 install -U FrictionlessDarwinCore
 #sudo docker run --detach -p 9189:9189 -t djtfmartin/ala-sensitive-data-service:v20200214-4-multiarch
 
 # create directories
-sudo ln -s /mnt /data
+sudo mkdir /mnt/pipelines-data
+sudo ln -s /mnt/pipelines-data /data
+
 sudo mkdir -p /data/la-pipelines/config
 sudo mkdir -p /data/biocache-load
 sudo mkdir -p /data/pipelines-shp
