@@ -25,6 +25,7 @@ sudo chmod -R 777 /data/dwca-tmp/
 sudo mkdir -p /data/spark-tmp
 sudo chown hadoop:hadoop -R /mnt/dwca-tmp
 sudo chown hadoop:hadoop -R /data/*
+sudo chown hadoop:hadoop -R /tmp/pipelines-export
 
 # create HDFS directory
 sudo hdfs dfs -mkdir /dwca-exports
