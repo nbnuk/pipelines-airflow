@@ -66,6 +66,7 @@ ZK_URL = Variable.get("zk_url")
 EC2_ADDITIONAL_MASTER_SECURITY_GROUPS = Variable.get('ec2_additional_master_security_groups').split(',')
 EC2_ADDITIONAL_SLAVE_SECURITY_GROUPS = Variable.get('ec2_additional_slave_security_groups').split(',')
 
+S3_BUCKET_MIGRATION = Variable.get("s3_bucket_migration")
 
 def get_bootstrap_actions(bootstrap_script):
     return [
