@@ -41,7 +41,8 @@ def get_pre_image_steps(dataset_list, override_uuid_percentage=False):
     return [
         step_bash_cmd("c. Interpretation", f" la-pipelines interpret {dataset_list} --cluster"),
         step_bash_cmd("d. UUID", f" la-pipelines uuid {dataset_list}  --cluster {extra_args}"),
-        step_bash_cmd("e. SDS", f" la-pipelines sds {dataset_list}  --cluster")
+        step_bash_cmd("e. SDS", f" la-pipelines sds {dataset_list}  --cluster"),
+        step_bash_cmd("e.2 Access Controls", f" la-pipelines access-controls {dataset_list}  --cluster"),
     ]
 
 
