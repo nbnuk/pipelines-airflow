@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.9 3
+#sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.9 3
 ami_id=`curl http://169.254.169.254/latest/meta-data/ami-id`
 echo "CUSTOM_AMI_ID: $ami_id"
 
