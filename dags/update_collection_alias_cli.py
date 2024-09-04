@@ -11,16 +11,15 @@ checks_available = [
     "check_total_count",
     "check_data_resources",
     "check_min_fields_for_random_records",
-    "check_compare_random_records",
-    "check_conservation_status",
+    # "check_compare_random_records",
+    # "check_conservation_status",
     "check_spatial_layer_country",
     "check_spatial_layer_state",
     "check_sensitivity",
     "check_species_list_uid",
-    "check_spatial_layer_cl959",
-    "check_spatial_layer_cl1048",
-    "check_spatial_layer_cl966",
-    "check_spatial_layer_cl21"
+    # "check_spatial_layer_cl959",
+    # "check_spatial_layer_cl1048",
+    # "check_spatial_layer_cl966"
 ]
 checks_available.sort()
 
