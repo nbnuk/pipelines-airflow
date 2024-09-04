@@ -71,8 +71,7 @@ def taskflow():
         return auth.get_token()
 
     @task
-    def call_api(jwt_token):
-        headers = {'user-agent': 'token-refresh/0.1.1', 'Authorization': f'Bearer {jwt_token}'}
+    def call_api(headers):
         try:
             r = requests.get(ala_config.BIOCACHE_URL + '/sync', headers=headers)
             r.raise_for_status()
@@ -81,7 +80,15 @@ def taskflow():
             print("Error encountered during request ", err)
             raise SystemExit(err)
 
-    call_api(authenticate())
+    headers = {}
 
+    if ala_config.AUTH_TOKEN_URL is not None and ala_config.AUTH_TOKEN_URL != '-':
+        headers = {'user-agent': 'token-refresh/0.1.1', 'Authorization': f'Bearer {authenticate()}'}
+    elif ala_config.ALA_API_KEY is not None and ala_config.ALA_API_KEY != '-':
+        headers = {'apiKey': f'{ala_config.ALA_API_KEY}'}
+    else:
+        raise SystemExit("No api credentials set")
+
+    call_api(headers)
 
 dag = taskflow()
