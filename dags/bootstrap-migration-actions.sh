@@ -16,7 +16,7 @@ sudo aws s3 cp s3://$S3_BUCKET/la-pipelines.jar  /usr/share/la-pipelines/la-pipe
 
 # set up migration script
 sudo aws s3 cp s3://$S3_BUCKET/migration/migration.jar  /usr/share/la-pipelines/migration.jar
-sudo aws s3 cp s3://$S3_BUCKET/migration/migrate-uuids-cluster.sh  /usr/bin/migrate-uuids-emr.sh
+sudo aws s3 cp s3://$S3_BUCKET/migration/migrate-uuids-emr.sh  /usr/bin/migrate-uuids-emr.sh
 sudo aws s3 cp s3://$S3_BUCKET/airflow/dags/s3-upload-migrated-uuids.sh /usr/bin/s3-upload-migrated-uuids.sh
 sudo chmod -R 777 /usr/bin/migrate-uuids-emr.sh
 sudo chmod -R 777 /usr/bin/s3-upload-migrated-uuids.sh
