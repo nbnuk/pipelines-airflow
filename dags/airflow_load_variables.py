@@ -15,13 +15,16 @@ dag = DAG(
     },
     description='A DAG to load Airflow variables from a JSON file',
     schedule_interval=None,
+    params={"s3_bucket": "nbnatlas-pipelines",
+            "variables_json_file": "airflow-variables.json"
+            }
 )
 
 # Define the function to load variables
-def load_variables_from_json():
+def load_variables_from_json(**kwargs):
 
-    s3_bucket = "nbn-pipelines"  # Source bucket name - hardcode as we don't have variables yet
-    s3_key = "airflow-variables-sanitised.json"  # Path to the JSON file in the bucket
+    s3_bucket = kwargs['dag_run'].conf['s3_bucket']  # Source bucket name - hardcode as we don't have variables yet
+    s3_key = kwargs['dag_run'].conf['variables_json_file']  # Path to the JSON file in the bucket
 
     # Initialize a session using boto3
     s3_client = boto3.client('s3')
