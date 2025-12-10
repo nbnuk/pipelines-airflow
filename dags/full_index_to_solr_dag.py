@@ -52,10 +52,10 @@ def get_spark_steps(solr_collection_name, include_sampling, include_jack_knife, 
         # s3_cp("n. Copy Outliers results to S3", "hdfs:///pipelines-outlier", f"s3://{ala_config.S3_BUCKET_AVRO}/pipelines-outlier", action_on_failure='CONTINUE'),
         s3_cp("o. Copy Sampling results to S3", "hdfs:///pipelines-all-datasets/sampling", f"s3://{ala_config.S3_BUCKET_AVRO}/pipelines-all-datasets/sampling", action_on_failure='CONTINUE'),
         s3_cp("p. Copy Sampling metrics to S3", "hdfs:///pipelines-all-datasets/sampling-metrics.yml", f"s3://{ala_config.S3_BUCKET_AVRO}/pipelines-all-datasets/", action_on_failure='CONTINUE'),
-        emr_python_step(f'k. Check index and update collection alias',
-                        f'/tmp/update_collection_alias_cli.py --solr_base {ala_config.SOLR_URL} --new_collection {solr_collection_name}'
-                        f' --collection_to_keep {ala_config.SOLR_COLLECTION_TO_KEEP} --solr_alias {ala_config.SOLR_COLLECTION} '
-                        f' --old_collection {ala_config.SOLR_COLLECTION}  auto_all')
+        # emr_python_step(f'k. Check index and update collection alias',
+        #                 f'/tmp/update_collection_alias_cli.py --solr_base {ala_config.SOLR_URL} --new_collection {solr_collection_name}'
+        #                 f' --collection_to_keep {ala_config.SOLR_COLLECTION_TO_KEEP} --solr_alias {ala_config.SOLR_COLLECTION} '
+        #                 f' --old_collection {ala_config.SOLR_COLLECTION}  auto_all')
     ]
 
 
