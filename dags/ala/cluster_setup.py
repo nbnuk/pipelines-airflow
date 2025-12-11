@@ -127,7 +127,7 @@ class PreIngestionEMRConfig(EMRConfig):
                         {
                             'VolumeSpecification': {
                                 'SizeInGB': self.ebs_size_in_gb,
-                                'VolumeType': 'standard'
+                                'VolumeType': 'gp3'
                             }
                         }
                     ]
@@ -179,7 +179,7 @@ class PipelinesSingleEMRConfig(PipelinesEMRConfig):
                         {
                             'VolumeSpecification': {
                                 'SizeInGB': self.ebs_size_in_gb,
-                                'VolumeType': 'standard'
+                                'VolumeType': 'gp3'
                             }
                         }
                     ]
@@ -209,7 +209,7 @@ class PipelinesMultiEMRConfig(PipelinesEMRConfig):
                         {
                             'VolumeSpecification': {
                                 'SizeInGB': self.ebs_size_in_gb,
-                                'VolumeType': 'standard'
+                                'VolumeType': 'gp3'
                             }
                         }
                     ]
@@ -226,7 +226,7 @@ class PipelinesMultiEMRConfig(PipelinesEMRConfig):
                         {
                             'VolumeSpecification': {
                                 'SizeInGB': self.ebs_size_in_gb,
-                                'VolumeType': 'standard'
+                                'VolumeType': 'gp3'
                             }
                         }
                     ]
