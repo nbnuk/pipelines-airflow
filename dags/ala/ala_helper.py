@@ -14,6 +14,9 @@ from ala import ala_config
 log: logging.log = logging.getLogger("airflow")
 log.setLevel(logging.INFO)
 
+def strtobool(val: str) -> bool:
+    """Lightweight, non-deprecated alternative to distutils.util.strtobool."""
+    return str(val).strip().lower() in {"y", "yes", "t", "true", "on", "1"}
 
 def get_dr_count(dr: str):
     """
@@ -350,6 +353,30 @@ def list_drs_index_avro_in_bucket(**kwargs):
                                   time_range=(None, None) if "time_range" not in kwargs else kwargs[
                                       "time_range"])
 
+def list_drs_verbatim_avro_in_bucket(**kwargs):
+    """
+    Lists Avro files matching the DRs verbatim avro pattern in a specified bucket.
+
+    This function searches for Avro files within the 'pipelines-data/' directory of the given bucket,
+    matching the regex pattern for DRs verbatim files. Optionally, a time range can be specified to filter results.
+
+    Args:
+        **kwargs: Arbitrary keyword arguments.
+            bucket (str): The name of the bucket to search in.
+            time_range (tuple, optional): A tuple (start_time, end_time) to filter files by modification time.
+                If not provided, all files are considered.
+
+    Returns:
+        list: A list of object keys (file paths) matching the DRS verbatim Avro pattern within the bucket.
+    """
+
+    return list_objects_in_bucket(
+        kwargs["bucket"],
+        "pipelines-data/",
+        r"^.*/dr[0-9]+/1/verbatim/verbatim+[\-0-9of]*\.avro$",
+        sub_dr_folder="",
+        time_range=(None, None) if "time_range" not in kwargs else kwargs["time_range"],
+    )
 
 def list_drs_ingested_since(**kwargs):
     return list_objects_in_bucket(kwargs['bucket'], 'pipelines-data/',
