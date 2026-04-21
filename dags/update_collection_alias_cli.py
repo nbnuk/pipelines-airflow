@@ -417,7 +417,7 @@ def check_sensitivity(**kwargs):
 def check_species_list_uid(**kwargs):
     parse_params(kwargs)
 
-    return check_facet("speciesListUid", "speciesListUid:*", 100, 100, "count")
+    return check_facet("speciesListUid", "speciesListUid:*", 100, 120, "count")
 
 
 def check_conservation_status(**kwargs):
